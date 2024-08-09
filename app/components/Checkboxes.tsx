@@ -3,7 +3,13 @@
 import { useEffect, useState } from 'react';
 import { getRandom } from '../utils/random';
 
-export default function Checkboxes({ isGoal }: { isGoal: any }) {
+export default function Checkboxes({
+  isGoal,
+  isAny,
+}: {
+  isGoal: any;
+  isAny: any;
+}) {
   const [random, setRandom] = useState<number>();
 
   useEffect(() => {
@@ -18,7 +24,12 @@ export default function Checkboxes({ isGoal }: { isGoal: any }) {
     for (var i = 0; i < 100; i++) {
       checkbox.push(
         i != random ? (
-          <input key={i} type="checkbox" style={{ zoom: '2.0' }} />
+          <input
+            key={i}
+            onClick={isAny}
+            type="checkbox"
+            style={{ zoom: '2.0' }}
+          />
         ) : (
           <input
             key={i}
